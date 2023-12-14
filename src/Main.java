@@ -14,7 +14,7 @@ public class Main {
         int a = 3;
         int b = 4;
         if (a + b >= 0) System.out.println("Сумма положительная");
-            else System.out.println("Сумма отрицательная");
+        else System.out.println("Сумма отрицательная");
     }
 
     public static void printColor() {
