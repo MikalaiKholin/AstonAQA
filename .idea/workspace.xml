@@ -4,96 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efe4f81a-2833-4880-ba10-11a75d79094e" name="Changes" comment="" />
+    <list default="true" id="9476a25d-b21e-4d20-aae0-c6447ac8771c" name="Changes" comment="move to Maven" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="088796fe-88d0-4d8f-bcf5-551059c1887c" />
+        <option name="url" value="https://github.com/MikalaiKholin/MikalaiKholin.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2ZPCEYJlspJreeUi9tc4b1VWVfW" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2ZY3afRShEh6lA2FFbspZoBcuWK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/VS_AQA/Aston/LESSON2/LESSON_2",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="efe4f81a-2833-4880-ba10-11a75d79094e" name="Changes" comment="" />
-      <created>1702314219225</created>
+      <changelist id="9476a25d-b21e-4d20-aae0-c6447ac8771c" name="Changes" comment="" />
+      <created>1702585250380</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702314219225</updated>
+      <updated>1702585250380</updated>
     </task>
-    <task id="LOCAL-00001" summary="Initial">
-      <created>1702314474298</created>
+    <task id="LOCAL-00001" summary="move to Maven">
+      <created>1702585507183</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1702314474298</updated>
+      <updated>1702585507183</updated>
     </task>
-    <task id="LOCAL-00002" summary="Initial commit">
-      <created>1702485031578</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702485031578</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat : task1.1 complite">
-      <created>1702485410242</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702485410242</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat : task1.2 complite">
-      <created>1702485918276</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1702485918276</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat : task1.3 complite">
-      <created>1702486361894</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702486361894</updated>
-    </task>
-    <task id="LOCAL-00006" summary="feat : task1.4 complite">
-      <created>1702486803674</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1702486803674</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial" />
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="feat : task1.1 complite" />
-    <MESSAGE value="feat : task1.2 complite" />
-    <MESSAGE value="feat : task1.3 complite" />
-    <MESSAGE value="feat : task1.4 complite" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : task1.4 complite" />
+    <MESSAGE value="move to Maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="move to Maven" />
   </component>
 </project>
