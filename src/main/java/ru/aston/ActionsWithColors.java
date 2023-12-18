@@ -3,16 +3,16 @@ package ru.aston;
 public class ActionsWithColors {
     private int value;
 
-    public ActionsWithColors(int value) {
-        this.value = value;
-    }
-
     public void setValue(int value) {
         this.value = value;
     }
 
     public int getValue() {
         return value;
+    }
+
+    public ActionsWithColors(int value) {
+        this.value = value;
     }
 
     public void printColor() {

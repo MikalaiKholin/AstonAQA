@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efe4f81a-2833-4880-ba10-11a75d79094e" name="Changes" comment="move to Maven">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithAAndB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithColors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithWords.java" afterDir="false" />
+    <list default="true" id="efe4f81a-2833-4880-ba10-11a75d79094e" name="Changes" comment="OOP, but why">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/aston/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/aston/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/aston/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/aston/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithColors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702587321688</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="OOP, but why">
+      <created>1702924859203</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702924859203</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="move to Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="move to Maven" />
+    <MESSAGE value="OOP, but why" />
+    <option name="LAST_COMMIT_MESSAGE" value="OOP, but why" />
   </component>
 </project>
