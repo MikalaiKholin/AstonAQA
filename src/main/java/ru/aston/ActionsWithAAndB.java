@@ -30,8 +30,18 @@ public class ActionsWithAAndB {
         else System.out.println("Сумма отрицательная");
     }
 
+    public void checkSumSign(int externalA, int externalB) {
+        if (externalA + externalB >= 0) System.out.println("Сумма положительная");
+        else System.out.println("Сумма отрицательная");
+    }
+
     public void compareNumbers() {
         if (a >= b) System.out.println("a >= b");
+        else System.out.println("a < b");
+    }
+
+    public void compareNumbers(int externalA, int externalB) {
+        if (externalA >= externalB) System.out.println("a >= b");
         else System.out.println("a < b");
     }
 }

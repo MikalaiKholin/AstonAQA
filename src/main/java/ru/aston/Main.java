@@ -11,6 +11,7 @@ public class Main {
         colors.printColor();
         colors.setValue(1000);
         colors.printColor();
+        colors.printColor(20);
 
         ActionsWithAAndB aB = new ActionsWithAAndB(4, -5);
         aB.checkSumSign();
@@ -19,5 +20,9 @@ public class Main {
         aB.setB(3);
         aB.checkSumSign();
         aB.compareNumbers();
+        aB.checkSumSign(5, 3);
+        aB.checkSumSign(-5, 3);
+        aB.compareNumbers(1, 6);
+        aB.compareNumbers(9, 6);
     }
 }

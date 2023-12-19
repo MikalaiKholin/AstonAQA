@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="efe4f81a-2833-4880-ba10-11a75d79094e" name="Changes" comment="OOP, but why">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithAAndB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithAAndB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/aston/ActionsWithColors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/aston/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/aston/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702924859203</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="OOP, but why">
+      <created>1702925114256</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702925114256</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
