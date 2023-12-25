@@ -8,4 +8,8 @@ public class ActionsWithNumbers {
     public static void isPositiveNumber(int number){
         System.out.println(number >= 0 ? "positive" : "negative");
     }
+
+    public static boolean isNegativeNumber(int number){
+        return (number < 0);
+    }
 }
