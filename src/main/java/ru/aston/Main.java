@@ -10,5 +10,13 @@ public class Main {
             new Employee("Vasia", Position.SENIOR, "Vasian@gmail.com", "+375344337664", 1200, 33)
         };
         for (Employee e : employees) System.out.println(e);
+
+        System.out.println();
+
+        Park.Attraction[] attractions = new Park.Attraction[]{
+                new Park.Attraction("ferris wheel", "10:00-22:00", 10),
+                new Park.Attraction("carousel", "10:00-22:00", 8),
+        };
+        for (Park.Attraction a : attractions) System.out.println(a);
     }
 }

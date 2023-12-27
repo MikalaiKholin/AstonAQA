@@ -18,7 +18,7 @@ public class Employee {
     }
 
     public String toString(){
-        return (String.format("Name - %s; Position - %s; Email - %s; Phone - %s; Salary - %f; Age - %d",
+        return (String.format("Name - %s; Position - %s; Email - %s; Phone - %s; Salary - %.2f; Age - %d",
                 name, position, email, phone, salary, age));
     }
 
