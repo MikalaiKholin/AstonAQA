@@ -31,7 +31,7 @@ public class Triangle implements IFigure {
     }
 
     public String toString(){
-        return String.format("Triangle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
-                getPerimeter(), getSquare(), getBorderColor(), getBackgroundColor()) ;
+        return String.format("Triangle, %s, %s, border color - %s, background color - %s",
+                printPerimeter(), printSquare(), getBorderColor(), getBackgroundColor()) ;
     }
 }
