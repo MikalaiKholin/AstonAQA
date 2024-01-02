@@ -27,5 +27,12 @@ public class Main {
             c.eat(bowl);
             c.theStateOfSatiety();
         }
+
+        IFigure[] figuries = new IFigure[]{
+                new Triangle(1, 3, 3, "red", "blue"),
+                new Rectangle(2, 4, "green", "black"),
+                new Circle(5, "white", "yellow")
+        };
+        for (IFigure f : figuries) System.out.println(f);
     }
 }
