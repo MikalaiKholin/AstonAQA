@@ -14,14 +14,6 @@ public class Triangle implements IFigure {
         this.borderColor = borderColor;
     }
 
-    public double getPerimeter() {
-        return a + b + c;
-    }
-
-    public double getSquare() {
-        return Math.sqrt(getPerimeter() / 2 * (getPerimeter() / 2 - a) * (getPerimeter() / 2 - b) * (getPerimeter() / 2 - c));
-    }
-
     public String getBackgroundColor() {
         return backgroundColor;
     }
@@ -31,7 +23,7 @@ public class Triangle implements IFigure {
     }
 
     public String toString(){
-        return String.format("Triangle, %s, %s, border color - %s, background color - %s",
-                printPerimeter(), printSquare(), getBorderColor(), getBackgroundColor()) ;
+        return String.format("Triangle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
+                getPerimeter(a, b, c), getSquare(a, b, c), getBorderColor(), getBackgroundColor()) ;
     }
 }

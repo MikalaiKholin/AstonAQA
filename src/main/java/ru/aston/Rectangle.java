@@ -12,14 +12,6 @@ public class Rectangle implements IFigure{
         this.borderColor = borderColor;
     }
 
-    public double getPerimeter() {
-        return a + b;
-    }
-
-    public double getSquare() {
-        return a * b;
-    }
-
     public String getBackgroundColor() {
         return backgroundColor;
     }
@@ -29,7 +21,7 @@ public class Rectangle implements IFigure{
     }
 
     public String toString(){
-        return String.format("Rectangle, %s, %s, border color - %s, background color - %s",
-                printPerimeter(), printSquare(), getBorderColor(), getBackgroundColor()) ;
+        return String.format("Rectangle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
+                getPerimeter(a, b), getSquare(a, b), getBorderColor(), getBackgroundColor()) ;
     }
 }

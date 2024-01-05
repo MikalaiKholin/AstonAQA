@@ -10,13 +10,6 @@ public class Circle implements IFigure{
         this.borderColor = borderColor;
     }
 
-    public double getPerimeter() {
-        return 2 * Math.PI * r;
-    }
-
-    public double getSquare() {
-        return Math.PI * r * r;
-    }
 
     public String getBackgroundColor() {
         return backgroundColor;
@@ -27,7 +20,7 @@ public class Circle implements IFigure{
     }
 
     public String toString(){
-        return String.format("Circle, %s, %s, border color - %s, background color - %s",
-                printPerimeter(), printSquare(), getBorderColor(), getBackgroundColor()) ;
+        return String.format("Circle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
+                getPerimeter(r), getSquare(r), getBorderColor(), getBackgroundColor()) ;
     }
 }
