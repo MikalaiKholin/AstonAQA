@@ -1,6 +1,7 @@
 package ru.aston;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -18,6 +19,7 @@ public class AppData {
         writeString(head, false);
         for (int[] d : data){
             String dataLine = (Arrays.toString(d)).replace(',', ';').replace("[", "").replace("]","");
+            writeString("\n", true);
             writeString(dataLine, true);
         }
     }
@@ -25,7 +27,6 @@ public class AppData {
     public void writeString(String str, boolean append){
         try {
             FileWriter writer = new FileWriter("src/main/resources/data.csv", append);
-            writer.write("\n");
             writer.write(str);
             writer.close();
         } catch (IOException e) {
@@ -34,20 +35,19 @@ public class AppData {
     }
 
     public void readData(){
+        ArrayList<String> lines = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data.csv"));
             String line = reader.readLine();
-            System.out.println(line);
-            header = line.split("; ");
-            int i = 0;
             while (line != null) {
-                System.out.println(line);
-                data[i] = Arrays.stream(line.split("; ")).mapToInt(Integer::parseInt).toArray();
+                lines.add(line);
                 line = reader.readLine();
             }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        header = lines.get(0).split("; ");
+        for (int i = 1; i < lines.size(); i++) data[i-1] = Arrays.stream(lines.get(i).split("; ")).mapToInt(Integer::parseInt).toArray();
     }
 }
