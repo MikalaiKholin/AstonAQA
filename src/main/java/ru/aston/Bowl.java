@@ -7,11 +7,11 @@ public class Bowl {
         this.kilogramsOfFood = kilogramsOfFood;
     }
 
-    public void addFood(int kilogramsOfFood){
+    public void addFood(int kilogramsOfFood) {
         this.kilogramsOfFood += kilogramsOfFood;
     }
 
-    public boolean removeFood(int kilogramsOfFood){
+    public boolean removeFood(int kilogramsOfFood) {
         if (this.kilogramsOfFood < kilogramsOfFood) return false;
         this.kilogramsOfFood -= kilogramsOfFood;
         return true;

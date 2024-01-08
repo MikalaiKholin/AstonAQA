@@ -3,11 +3,11 @@ package ru.aston;
 public class Main {
     public static void main(String[] args) {
         Animal[] animals = new Animal[]{
-                new Dog("Bobik"),
+                new Dog("Bobik", 8),
                 new Cat("Murka", 3),
                 new Cat("Barsik", 5)
         };
-        for(Animal a : animals){
+        for (Animal a : animals) {
             a.run(50);
             a.run(550);
             a.swim(10);
@@ -23,7 +23,7 @@ public class Main {
                 new Cat("Barsik", 5)
         };
         Bowl bowl = new Bowl(5);
-        for (Cat c : cats){
+        for (Cat c : cats) {
             c.eat(bowl);
             c.theStateOfSatiety();
         }
