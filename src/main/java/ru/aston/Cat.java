@@ -18,8 +18,4 @@ public class Cat extends Animal {
     public void swim(int distance) {
         System.out.println("Cats can't swim");
     }
-
-    public void theStateOfSatiety() {
-        System.out.printf("The %s is %s%n", super.getName(), getSatiety() ? "satiety" : "hungry");
-    }
 }

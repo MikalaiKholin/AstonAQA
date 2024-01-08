@@ -42,4 +42,8 @@ public abstract class Animal {
     public void eat(Bowl bowl) {
         if (!satiety) satiety = bowl.removeFood(appetite);
     }
+
+    public void theStateOfSatiety() {
+        System.out.printf("The %s is %s%n", getName(), getSatiety() ? "satiety" : "hungry");
+    }
 }
