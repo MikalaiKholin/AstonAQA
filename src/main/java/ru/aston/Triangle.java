@@ -15,22 +15,27 @@ public class Triangle implements IFigure {
         this.borderColor = borderColor;
     }
 
+    @Override
     public String getBackgroundColor() {
         return backgroundColor;
     }
 
+    @Override
     public String getBorderColor() {
         return borderColor;
     }
 
+    @Override
     public double getPerimeter() {
         return a + b + c;
     }
 
+    @Override
     public double getSquare() {
         return Math.sqrt(getPerimeter() / 2 * (getPerimeter() / 2 - a) * (getPerimeter() / 2 - b) * (getPerimeter() / 2 - c));
     }
 
+    @Override
     public String toString() {
         return String.format("Triangle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
                 getPerimeter(), getSquare(), getBorderColor(), getBackgroundColor());

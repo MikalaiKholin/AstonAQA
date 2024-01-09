@@ -11,22 +11,27 @@ public class Circle implements IFigure {
         this.borderColor = borderColor;
     }
 
+    @Override
     public String getBackgroundColor() {
         return backgroundColor;
     }
 
+    @Override
     public String getBorderColor() {
         return borderColor;
     }
 
+    @Override
     public double getPerimeter() {
         return 2 * Math.PI * r;
     }
 
+    @Override
     public double getSquare() {
         return Math.PI * r * r;
     }
 
+    @Override
     public String toString() {
         return String.format("Circle, perimeter - %.2f, square - %.2f, border color - %s, background color - %s",
                 getPerimeter(), getSquare(), getBorderColor(), getBackgroundColor());
