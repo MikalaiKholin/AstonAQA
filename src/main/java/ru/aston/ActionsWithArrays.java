@@ -19,4 +19,8 @@ public class ActionsWithArrays {
         }
         return map;
     }
+
+    public static String[] uniqueWordsStream(String[] words) {
+        return new ArrayList<>(Arrays.asList(words)).stream().distinct().toArray(String[]::new);
+    }
 }
