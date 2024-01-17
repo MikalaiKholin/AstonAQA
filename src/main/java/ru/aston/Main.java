@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String[] words = new String[] {"привет", "привет", "мир", "кот", "собака", "дом", "дом", "машина", "книга", "стол", "стул", "дом", "цветок", "цветок"};
+        String[] words = new String[]{"привет", "привет", "мир", "кот", "собака", "дом", "дом", "машина", "книга", "стол", "стул", "дом", "цветок", "цветок"};
 
         System.out.println(Arrays.toString(ActionsWithArrays.uniqueWords(words)));
 

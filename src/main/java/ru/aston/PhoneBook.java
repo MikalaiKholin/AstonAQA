@@ -16,7 +16,7 @@ public class PhoneBook {
         }
     }
 
-    public ArrayList<String> get(String name){
+    public ArrayList<String> get(String name) {
         return phoneBook.get(name);
     }
 }
