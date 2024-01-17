@@ -8,6 +8,7 @@ public class Main {
 
         System.out.println(Arrays.toString(ActionsWithArrays.uniqueWords(words)));
 
+
         System.out.println(ActionsWithArrays.numberOfWords(words));
 
         PhoneBook book = new PhoneBook();
