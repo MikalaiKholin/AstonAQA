@@ -20,5 +20,14 @@ public class Main {
         book.add("Petrov", "+37529585557");
         String name = "Petrov";
         System.out.printf("Name - %s, Phone(s) - %s%n", name, book.get(name));
+
+        NewPhoneBook book1 = new NewPhoneBook();
+        book1.add("Ivanov", "+37529888777");
+        book1.add("Petrov", "+37529585777");
+        book1.add("Sidorov", "+37529666777");
+        book1.add("Ivanov", "+37529111777");
+        book1.add("Petrov", "+37529585557");
+        String name1 = "Petrov";
+        System.out.printf("Name - %s, Phone(s) - %s%n", name1, book1.get(name1));
     }
 }
