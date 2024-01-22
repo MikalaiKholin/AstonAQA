@@ -3,11 +3,14 @@ package ru.aston;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ActionsWithCollections {
 
-    public static List<Integer> numberOfEvenNumbers(@NotNull List<Integer> list) {
-        return list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+    public static long numberOfEvenNumbers(@NotNull List<Integer> list) {
+        return list.stream().filter(n -> n % 2 == 0).count();
+    }
+
+    public static long numberOfWords(@NotNull List<String> list, String word) {
+        return list.stream().filter(w -> w.equals(word)).count();
     }
 }
