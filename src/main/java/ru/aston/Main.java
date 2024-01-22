@@ -19,5 +19,10 @@ public class Main {
 
         words = Arrays.asList("f10", "f15", "f2", "f4", "f4", "f1");
         System.out.println(ActionsWithCollections.sortList(words));
+
+        System.out.println(Students.manAverageAge());
+        System.out.println(Students.summonsToTheArmy());
+
+        System.out.println(ActionsWithLogins.beginWithF());
     }
 }
