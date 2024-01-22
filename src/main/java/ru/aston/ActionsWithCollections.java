@@ -13,4 +13,12 @@ public class ActionsWithCollections {
     public static long numberOfWords(@NotNull List<String> list, String word) {
         return list.stream().filter(w -> w.equals(word)).count();
     }
+
+    public static <T> T firstElement(List<T> list) {
+        return list.stream().findFirst().orElse(null);
+    }
+
+    public static <T> T lastElement(List<T> list) {
+        return list.stream().reduce((first, second) -> second).orElse(null);
+    }
 }
