@@ -2,6 +2,7 @@ package ru.aston;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ActionsWithCollections {
@@ -20,5 +21,10 @@ public class ActionsWithCollections {
 
     public static <T> T lastElement(List<T> list) {
         return list.stream().reduce((first, second) -> second).orElse(null);
+    }
+
+    public static <T extends Comparable<? super T>> List<T> sortList(List<T> list) {
+        Collections.sort(list);
+        return list;
     }
 }

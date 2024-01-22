@@ -16,5 +16,8 @@ public class Main {
         System.out.println(ActionsWithCollections.firstElement(numbers));
         System.out.println(ActionsWithCollections.lastElement(words));
         System.out.println(ActionsWithCollections.lastElement(new ArrayList<String>()));
+
+        words = Arrays.asList("f10", "f15", "f2", "f4", "f4", "f1");
+        System.out.println(ActionsWithCollections.sortList(words));
     }
 }
