@@ -6,8 +6,6 @@ public class Main {
     public static void main(String[] args) {
         String[] words = new String[]{"привет", "привет", "мир", "кот", "собака", "дом", "дом", "машина", "книга", "стол", "стул", "дом", "цветок", "цветок"};
 
-        System.out.println(Arrays.toString(ActionsWithArrays.uniqueWords(words)));
-
         System.out.println(Arrays.toString(ActionsWithArrays.uniqueWordsStream(words)));
 
         System.out.println(ActionsWithArrays.numberOfWords(words));
@@ -20,14 +18,5 @@ public class Main {
         book.add("Petrov", "+37529585557");
         String name = "Petrov";
         System.out.printf("Name - %s, Phone(s) - %s%n", name, book.get(name));
-
-        NewPhoneBook book1 = new NewPhoneBook();
-        book1.add("Ivanov", "+37529888777");
-        book1.add("Petrov", "+37529585777");
-        book1.add("Sidorov", "+37529666777");
-        book1.add("Ivanov", "+37529111777");
-        book1.add("Petrov", "+37529585557");
-        String name1 = "Petrov";
-        System.out.printf("Name - %s, Phone(s) - %s%n", name1, book1.get(name1));
     }
 }

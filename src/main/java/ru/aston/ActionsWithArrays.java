@@ -1,13 +1,11 @@
 package ru.aston;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActionsWithArrays {
-    public static String[] uniqueWords(String[] words) {
-        Set<String> set = new HashSet<>(Arrays.asList(words));
-        return set.toArray(new String[0]);
-    }
-
     public static Map<String, Integer> numberOfWords(String[] words) {
         Map<String, Integer> map = new HashMap<>();
         for (String w : words) {
