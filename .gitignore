@@ -8,6 +8,13 @@ target
 .gitignore
 pom.xml
 
+### GRADle ###
+build
+.gradle
+gradle
+gradlew.bat
+gradlew
+
 ### Eclipse ###
 .apt_generated
 .classpath
