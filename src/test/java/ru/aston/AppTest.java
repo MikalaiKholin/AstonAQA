@@ -8,11 +8,16 @@ import static org.testng.Assert.assertEquals;
 public class AppTest {
 
     @DataProvider(name = "factorials")
-    public int[][] parameterProvider() {
-        return new int[][]{new int[]{1, 1}};
+    public Object[][] factorials() {
+        return new Object[][] {
+                { 1, 1 },
+                { 2, 2 },
+                { 5, 120 },
+                { 10, 3628800 }
+        };
     }
-    @Test
-    void testFactorial() {
-        assertEquals(120, App.factorial(5));
+    @Test(dataProvider = "factorials")
+    void testFactorial(int number, int factorial) {
+        assertEquals(factorial, App.factorial(number));
     }
 }
