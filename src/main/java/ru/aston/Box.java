@@ -21,8 +21,7 @@ public class Box<T extends Fruit> {
     }
 
     public float getWeight() {
-        if (fruits.size() == 0) return 0;
-        return fruits.size() * fruits.get(0).getWEIGHT();
+        return (float) fruits.stream().mapToDouble(Fruit::getWeight).sum();
     }
 
     public boolean compare(Box<?> anotherBox) {

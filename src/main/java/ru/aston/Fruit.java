@@ -1,5 +1,5 @@
 package ru.aston;
 
 public abstract class Fruit {
-    abstract float getWEIGHT();
+    public abstract float getWeight();
 }
