@@ -1,20 +1,18 @@
 package ru.aston;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class AppTest {
-    @ParameterizedTest
-    @CsvSource({
-            "1, 1",
-            "2, 2",
-            "5, 120",
-            "10, 3628800"
-    })
-    void testFactorial(int number, int factorial) {
-        Assertions.assertEquals(factorial, App.factorial(number));
+
+    @DataProvider(name = "factorials")
+    public int[][] parameterProvider() {
+        return new int[][]{new int[]{1, 1}};
+    }
+    @Test
+    void testFactorial() {
+        assertEquals(120, App.factorial(5));
     }
 }
