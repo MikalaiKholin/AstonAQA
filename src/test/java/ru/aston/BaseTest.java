@@ -10,11 +10,11 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    public static final long IMPLICITLY_WAIT = 15;
-    public static final long PAGE_LOAD_TIMEOUT = 15;
-    public static final long SCRIPT_RUN_TIMEOUT = 15;
+    public static final long IMPLICITLY_WAIT = 5;
+    public static final long PAGE_LOAD_TIMEOUT = 5;
+    public static final long SCRIPT_RUN_TIMEOUT = 5;
 
-    private final WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
 
     public WebDriver getDriver() {
         return driver;
@@ -22,6 +22,7 @@ public class BaseTest {
 
     @BeforeMethod
     protected void beforeMethod() {
+        driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT,
                 TimeUnit.SECONDS);
@@ -37,6 +38,6 @@ public class BaseTest {
 
     @AfterMethod
     protected void afterMethod() {
-        //driver.quit();
+        driver.quit();
     }
 }
