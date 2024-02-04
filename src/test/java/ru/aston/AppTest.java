@@ -17,7 +17,7 @@ public class AppTest {
         };
     }
     @Test(dataProvider = "factorials")
-    void testFactorial(int number, int factorial) {
+    public void testFactorial(int number, int factorial) {
         assertEquals(factorial, App.factorial(number));
     }
 }
