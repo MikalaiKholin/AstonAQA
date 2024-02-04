@@ -12,7 +12,7 @@ public class AppTest {
             "5, 120",
             "10, 3628800"
     })
-    void testFactorial(int number, int factorial) {
+    public void testFactorial(int number, int factorial) {
         Assertions.assertEquals(factorial, App.factorial(number));
     }
 }
