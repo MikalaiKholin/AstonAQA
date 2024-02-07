@@ -1,62 +1,28 @@
 package ru.aston;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class AppTest extends BaseTest{
-
-    @Test
-    public void testOnlinePayFormVisibility() {
-        WebElement onlinePayFormText = getDriver().findElement(By.xpath("//div[@class='pay__wrapper']/h2"));
-        Assert.assertEquals(onlinePayFormText.getText(), "Онлайн пополнение\nбез комиссии");
-    }
-
-    @DataProvider(name = "paySystems")
-    public String[][] paySystems() {
+    @DataProvider(name = "onlinePayForms")
+    public String[][] onlinePayForms() {
         return new String[][] {
-                { "Visa" },
-                { "Verified By Visa" },
-                { "MasterCard" },
-                { "MasterCard Secure Code" },
-                { "Белкарт" },
-                { "МИР" }
+                { "Услуги связи", "Номер телефона", "Сумма", "E-mail для отправки чека"},
+                { "Домашний интернет", "Номер абонента", "Сумма", "E-mail для отправки чека"},
+                { "Рассрочка", "Номер счета на 44", "Сумма", "E-mail для отправки чека"},
+                { "Задолженность", "Номер счета на 2073", "Сумма", "E-mail для отправки чека"}
         };
     }
-    @Test(dataProvider = "paySystems")
-    public void testPaySystemLogo(String paySystem) {
-        WebElement paySystemLogo = getDriver().findElement(By.xpath(String.format("//img[@alt = '%s']", paySystem)));
-        Assert.assertTrue(paySystemLogo.isDisplayed());
+    @Test(dataProvider = "onlinePayForms")
+    public void testOnlinePayForms(String payment, String placeholder1, String placeholder2, String placeholder3) {
+        getDriver().findElement(By.xpath("//div[@class='pay__form']//div[@class='select__wrapper']")).click();
+        getDriver().findElement(By.xpath(String.format("//div[@class='pay__form']//p[contains(text(), '%s')]", payment))).click();
+        Assert.assertEquals(getDriver().findElement(By.xpath("//form[@class='pay-form opened']/div[1]/input")).getAttribute("placeholder"), placeholder1);
+        Assert.assertEquals(getDriver().findElement(By.xpath("//form[@class='pay-form opened']/div[2]/input")).getAttribute("placeholder"), placeholder2);
+        Assert.assertEquals(getDriver().findElement(By.xpath("//form[@class='pay-form opened']/div[3]/input")).getAttribute("placeholder"), placeholder3);
     }
 
-    @Test
-    public void testMoreDetailsLink() {
-        WebElement moreDetailsButton = getDriver().findElement(By.xpath("//a[@href='/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/']"));
-        moreDetailsButton.click();
-        Assert.assertEquals(getDriver().getCurrentUrl(), "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/");
-    }
 
-    @Test
-    public void testOnlinePayForm() {
-        String phone = "297777777";
-        String paySum = "10.05";
-        String email = "tt@gmail.com";
-        getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='phone']")).sendKeys(phone);
-        getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='total_rub']")).sendKeys(paySum);
-        getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='email']")).sendKeys(email);
-        getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/button")).click();
-
-        WebElement frame = getDriver().findElement(By.xpath("//iframe[@class='bepaid-iframe']"));
-        getDriver().switchTo().frame(frame);
-        WebElement paymentDetails = new WebDriverWait(getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated
-                        (By.xpath("//div[@class='app-wrapper__content']/app-payment-container/app-header")));
-        Assert.assertEquals(paymentDetails.getText(), String.format("%s BYN\nОплата: Услуги связи Номер:375%s", paySum, phone));
-    }
 }
