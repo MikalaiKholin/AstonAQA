@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    public static final long IMPLICITLY_WAIT = 5;
-    public static final long PAGE_LOAD_TIMEOUT = 5;
-    public static final long SCRIPT_RUN_TIMEOUT = 5;
+    public static final long IMPLICITLY_WAIT = 10;
+    public static final long PAGE_LOAD_TIMEOUT = 10;
+    public static final long SCRIPT_RUN_TIMEOUT = 10;
 
     private WebDriver driver;
 
@@ -20,19 +20,20 @@ public class BaseTest {
         return driver;
     }
 
-    @BeforeMethod
-    protected void beforeMethod() {
+    public WebDriver createDriver(){
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT,
-                TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT,
-                TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(SCRIPT_RUN_TIMEOUT,
-                TimeUnit.SECONDS);
-        driver.get("https://www.mts.by/");
-        WebElement cookieButton = getDriver().findElement(
-                By.xpath("//button[@class ='btn btn_black cookie__ok']"));
+        driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(SCRIPT_RUN_TIMEOUT, TimeUnit.SECONDS);
+        return driver;
+    }
+
+    @BeforeMethod
+    protected void beforeMethod() {
+        driver = createDriver();
+        getDriver().get("https://www.mts.by/");
+        WebElement cookieButton = getDriver().findElement(By.xpath("//button[@class ='btn btn_black cookie__ok']"));
         cookieButton.click();
     }
 
