@@ -19,7 +19,7 @@ public class AppTest extends BaseTest{
     }
 
     @DataProvider(name = "paySystems")
-    public String[][] factorials() {
+    public String[][] paySystems() {
         return new String[][] {
                 { "Visa" },
                 { "Verified By Visa" },
