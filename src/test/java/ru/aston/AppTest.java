@@ -14,7 +14,7 @@ public class AppTest extends BaseTest{
 
     @Test
     public void testOnlinePayFormVisibility() {
-        WebElement onlinePayFormText = getDriver().findElement(By.xpath("//section[@class='pay']/div[@class='pay__wrapper']/h2"));
+        WebElement onlinePayFormText = getDriver().findElement(By.xpath("//div[@class='pay__wrapper']/h2"));
         Assert.assertEquals(onlinePayFormText.getText(), "Онлайн пополнение\nбез комиссии");
     }
 
@@ -31,14 +31,13 @@ public class AppTest extends BaseTest{
     }
     @Test(dataProvider = "paySystems")
     public void testPaySystemLogo(String paySystem) {
-        WebElement paySystemLogo = getDriver().findElement(By.xpath(String.format("//div[@class='pay__partners']/ul/li/img[@alt = '%s']", paySystem)));
+        WebElement paySystemLogo = getDriver().findElement(By.xpath(String.format("//img[@alt = '%s']", paySystem)));
         Assert.assertTrue(paySystemLogo.isDisplayed());
     }
 
     @Test
     public void testMoreDetailsLink() {
-        WebElement moreDetailsButton = getDriver().findElement(By.xpath("//section[@class='pay']/div[@class='pay__wrapper']" +
-                "/a[@href='/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/']"));
+        WebElement moreDetailsButton = getDriver().findElement(By.xpath("//a[@href='/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/']"));
         moreDetailsButton.click();
         Assert.assertEquals(getDriver().getCurrentUrl(), "https://www.mts.by/help/poryadok-oplaty-i-bezopasnost-internet-platezhey/");
     }
