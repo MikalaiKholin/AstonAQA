@@ -12,9 +12,9 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
 public class AppTest extends BaseTest {
-  String phone = "297777777";
-  String paySum = "10.05";
-  String email = "tt@gmail.com";
+  private final String phone = "297777777";
+  private final String paySum = "10.05";
+  private final String email = "tt@gmail.com";
 
   @DataProvider(name = "onlinePayForms")
   public String[][] onlinePayForms() {
