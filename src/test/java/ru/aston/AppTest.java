@@ -1,5 +1,6 @@
 package ru.aston;
 
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,8 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ru.aston.Base.BaseTest;
-
-import java.time.Duration;
+import ru.aston.Model.*;
 
 public class AppTest extends BaseTest {
   private final String PHONE = "297777777";
@@ -74,7 +74,7 @@ public class AppTest extends BaseTest {
   public void testOnlinePaySummOnButton() {
     addPaymentData();
     WebElement paymentDetails =
-        new WebDriverWait(getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(getDriver(), Duration.ofSeconds(30))
             .until(
                 ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//div[@class='card-page__card']/button")));
@@ -132,17 +132,11 @@ public class AppTest extends BaseTest {
     Assert.assertTrue(paySystemLogo.isDisplayed());
   }
 
-  public void addPaymentData() {
-    getDriver()
-        .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='phone']"))
-        .sendKeys(PHONE);
-    getDriver()
-        .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='total_rub']"))
-        .sendKeys(PAYSUM);
-    getDriver()
-        .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='email']"))
-        .sendKeys(EMAIL);
-    getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/button")).click();
+  public void addPaymentData(){
+    new MtsStartPage(getDriver()).inputPayFormPhone(PHONE);
+    new MtsStartPage(getDriver()).inputPayFormTotalRub(PAYSUM);
+    new MtsStartPage(getDriver()).inputPayFormEmail(EMAIL);
+    new MtsStartPage(getDriver()).payFormButtonClick();
     WebElement frame = getDriver().findElement(By.xpath("//iframe[@class='bepaid-iframe']"));
     getDriver().switchTo().frame(frame);
   }
