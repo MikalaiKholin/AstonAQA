@@ -1,4 +1,4 @@
-package ru.aston;
+package ru.aston.Base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

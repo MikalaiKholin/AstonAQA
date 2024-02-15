@@ -8,13 +8,14 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import ru.aston.Base.BaseTest;
 
 import java.time.Duration;
 
 public class AppTest extends BaseTest {
-  private final String phone = "297777777";
-  private final String paySum = "10.05";
-  private final String email = "tt@gmail.com";
+  private final String PHONE = "297777777";
+  private final String PAYSUM = "10.05";
+  private final String EMAIL = "tt@gmail.com";
 
   @DataProvider(name = "onlinePayForms")
   public String[][] onlinePayForms() {
@@ -66,7 +67,7 @@ public class AppTest extends BaseTest {
                     By.xpath("//app-payment-container/app-header")));
     Assert.assertEquals(
         paymentDetails.getText(),
-        String.format("%s BYN\nОплата: Услуги связи Номер:375%s", paySum, phone));
+        String.format("%s BYN\nОплата: Услуги связи Номер:375%s", PAYSUM, PHONE));
   }
 
   @Test
@@ -77,7 +78,7 @@ public class AppTest extends BaseTest {
             .until(
                 ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//div[@class='card-page__card']/button")));
-    Assert.assertEquals(paymentDetails.getText(), String.format("Оплатить %s BYN", paySum));
+    Assert.assertEquals(paymentDetails.getText(), String.format("Оплатить %s BYN", PAYSUM));
   }
 
   @Test
@@ -134,13 +135,13 @@ public class AppTest extends BaseTest {
   public void addPaymentData() {
     getDriver()
         .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='phone']"))
-        .sendKeys(phone);
+        .sendKeys(PHONE);
     getDriver()
         .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='total_rub']"))
-        .sendKeys(paySum);
+        .sendKeys(PAYSUM);
     getDriver()
         .findElement(By.xpath("//div[@class='pay__forms']/form/div/input[@class='email']"))
-        .sendKeys(email);
+        .sendKeys(EMAIL);
     getDriver().findElement(By.xpath("//div[@class='pay__forms']/form/button")).click();
     WebElement frame = getDriver().findElement(By.xpath("//iframe[@class='bepaid-iframe']"));
     getDriver().switchTo().frame(frame);
