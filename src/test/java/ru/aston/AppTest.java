@@ -132,7 +132,7 @@ public class AppTest extends BaseTest {
     Assert.assertTrue(paySystemLogo.isDisplayed());
   }
 
-  public void addPaymentData(){
+  public void addPaymentData() {
     new MtsStartPage(getDriver()).inputPayFormPhone(PHONE);
     new MtsStartPage(getDriver()).inputPayFormTotalRub(PAYSUM);
     new MtsStartPage(getDriver()).inputPayFormEmail(EMAIL);
