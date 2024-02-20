@@ -2,15 +2,14 @@ package ru.aston;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import ru.aston.Base.BaseTest;
 import ru.aston.Model.*;
 
 import java.util.*;
 
 public class AppTest extends BaseTest {
-  private List<Product> productsOnStartPage = new ArrayList<>();
-  private List<Product> productsInCart = new ArrayList<>();
+  private final List<Product> productsOnStartPage = new ArrayList<>();
+  private final List<Product> productsInCart = new ArrayList<>();
 
   public void addProductsToTheCart() {
     WildberriesStartPageModel wildberriesStartPageModel =
@@ -32,7 +31,7 @@ public class AppTest extends BaseTest {
               .getProductName(wildberriesStartPageModel.getId(i * 2))
               .replace("/ ", "");
       productsOnStartPage.add(
-          new Product(0, (int) (Integer.parseInt(priceWB)), brand, productName));
+          new Product(0, (Integer.parseInt(priceWB)), brand, productName));
     }
   }
 
@@ -76,12 +75,10 @@ public class AppTest extends BaseTest {
 
   @Test(dependsOnMethods = "comparisonOfProductsTest")
   public void priceSummTest() {
-    Assert.assertTrue(
-        Integer.parseInt(
-                new WildberriesCartPageModel(getDriver())
+    Assert.assertEquals(productsInCart.stream().mapToInt(Product::getPrice).sum(), Integer.parseInt(
+            new WildberriesCartPageModel(getDriver())
                     .getPriceSumm()
                     .replace(" ₽", "")
-                    .replace(" ", ""))
-            == productsInCart.stream().mapToInt(Product::getPrice).sum());
+                    .replace(" ", "")));
   }
 }

@@ -3,10 +3,10 @@ package ru.aston;
 import java.util.Objects;
 
 public class Product implements Comparable<Product> {
-  private int price;
-  private int priceWB;
-  private String brand;
-  private String name;
+  private final int price;
+  private final int priceWB;
+  private final String brand;
+  private final String name;
 
   public Product(int price, int priceWB, String brand, String name) {
     this.price = price;
