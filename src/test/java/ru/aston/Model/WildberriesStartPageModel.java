@@ -14,12 +14,30 @@ public class WildberriesStartPageModel extends BaseModel {
   @FindBy(xpath = "//a[@data-wba-header-name='Cart']")
   private WebElement cartButton;
 
+  @FindBy(xpath = "//div[@class='popup__content']//li[@class='sizes-list__item']")
+  private WebElement sizesButton;
+
+  @FindBy(xpath = "//div[@class='popup__content']")
+  private WebElement sizesPopup;
+
+  public WildberriesStartPageModel(WebDriver driver) {
+    super(driver);
+  }
+
   public List<WebElement> getProducts() {
     return products;
   }
 
   public void clickOpenCartButton(){
     cartButton.click();
+  }
+
+  public void clickSizesButton(){
+    sizesButton.click();
+  }
+
+  public WebElement getSizesPopup(){
+    return sizesPopup;
   }
 
   public void productAddToCart(int num) {
@@ -79,9 +97,5 @@ public class WildberriesStartPageModel extends BaseModel {
               .findElements(
                   By.xpath("//a[@class='product-card__add-basket j-add-to-basket btn-main']"));
     }
-  }
-
-  public WildberriesStartPageModel(WebDriver driver) {
-    super(driver);
   }
 }
