@@ -1,19 +1,17 @@
 package ru.aston.Base;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-  public static final long IMPLICITLY_WAIT = 10;
-  public static final long PAGE_LOAD_TIMEOUT = 10;
-  public static final long SCRIPT_RUN_TIMEOUT = 10;
+  public static final long IMPLICITLY_WAIT = 5;
+  public static final long PAGE_LOAD_TIMEOUT = 5;
+  public static final long SCRIPT_RUN_TIMEOUT = 5;
 
   private WebDriver driver;
 
@@ -33,14 +31,15 @@ public class BaseTest {
     return driver;
   }
 
-  @BeforeMethod
+  @BeforeTest
   protected void beforeMethod() {
-    driver = createDriver();
+    if (driver == null) driver = createDriver();
     getDriver().get("https://www.wildberries.ru/");
   }
 
-  @AfterMethod
+  @AfterTest
   protected void afterMethod() {
-    //driver.quit();
+    //driver.close();
+    driver.quit();
   }
 }
