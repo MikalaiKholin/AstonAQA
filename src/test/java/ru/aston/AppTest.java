@@ -1,23 +1,80 @@
 package ru.aston;
 
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import ru.aston.Base.BaseTest;
-import ru.aston.Model.*;
+
+import static org.hamcrest.Matchers.equalTo;
 
 public class AppTest extends BaseTest {
-  @Test
-  public void addProductsToTheCart() {
-    WildberriesStartPageModel wildberriesStartPageModel = new WildberriesStartPageModel(getDriver());
-    wildberriesStartPageModel.productAddToCart(0);
-    String price1 = wildberriesStartPageModel.getPrice(wildberriesStartPageModel.getId(0));
-    System.out.println(price1);
-    String brand1 = wildberriesStartPageModel.getBrand(wildberriesStartPageModel.getId(0));
-    System.out.println(brand1);
-    String productName1 = wildberriesStartPageModel.getProductName(wildberriesStartPageModel.getId(0)).replace("/ ","");
-    System.out.println(productName1);
-    wildberriesStartPageModel.clickOpenCartButton();
+  private final Fruit apple = new Fruit("Apple", 1);
 
-    SoftAssert softAssert = new SoftAssert();
+  @Test
+  public void getMethodTest() {
+    getPageLink()
+        .when()
+        .get(String.format("get?%s=%d", apple.getName(), apple.getWeight()))
+        .then()
+        .body(
+            "url",
+            equalTo(
+                String.format(
+                    "https://postman-echo.com/get?%s=%d", apple.getName(), apple.getWeight())))
+        .statusCode(SUCCESS);
+  }
+
+  @Test
+  public void postMethodTest() {
+    getPageLink()
+        .contentType("application/json")
+        .body(apple)
+        .when()
+        .post("/post")
+        .then()
+        .body("json.name", equalTo(apple.getName()))
+        .and()
+        .body("json.weight", equalTo(apple.getWeight()))
+        .statusCode(SUCCESS);
+  }
+
+  @Test
+  public void putMethodTest() {
+    getPageLink()
+        .contentType("application/json")
+        .body(apple.toJson())
+        .when()
+        .put("/put")
+        .then()
+        .body("json.name", equalTo(apple.getName()))
+        .and()
+        .body("json.weight", equalTo(apple.getWeight()))
+        .statusCode(SUCCESS);
+  }
+
+  @Test
+  public void patchMethodTest() {
+    getPageLink()
+        .contentType("application/json")
+        .body(apple.toJson())
+        .when()
+        .patch("/patch")
+        .then()
+        .body("json.name", equalTo(apple.getName()))
+        .and()
+        .body("json.weight", equalTo(apple.getWeight()))
+        .statusCode(SUCCESS);
+  }
+
+  @Test
+  public void deleteMethodTest() {
+    getPageLink()
+        .contentType("application/json")
+        .body(apple.toJson())
+        .when()
+        .delete("/delete")
+        .then()
+        .body("json.name", equalTo(apple.getName()))
+        .and()
+        .body("json.weight", equalTo(apple.getWeight()))
+        .statusCode(SUCCESS);
   }
 }
