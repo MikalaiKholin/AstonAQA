@@ -1,45 +1,23 @@
 package ru.aston.Base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
-import java.util.concurrent.TimeUnit;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import ru.aston.Model.MainPage;
 
 public class BaseTest {
-  public static final long IMPLICITLY_WAIT = 5;
-  public static final long PAGE_LOAD_TIMEOUT = 5;
-  public static final long SCRIPT_RUN_TIMEOUT = 5;
+  protected static AndroidDriver<AndroidElement> driver;
+  //protected MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
 
-  private WebDriver driver;
-
-  public WebDriver getDriver() {
-    return driver;
+  @BeforeClass
+  public static void beforeMethod() {
+    driver = Driver.getDriver();
   }
 
-  public WebDriver createDriver() {
-    ChromeOptions options = new ChromeOptions();
-    //options.addArguments("--headless");
-    options.addArguments("--start-maximized");
-    driver = new ChromeDriver(options);
-    //driver.manage().deleteAllCookies();
-    driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
-    driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-    driver.manage().timeouts().setScriptTimeout(SCRIPT_RUN_TIMEOUT, TimeUnit.SECONDS);
-    return driver;
-  }
-
-  @BeforeTest
-  protected void beforeMethod() {
-    if (driver == null) driver = createDriver();
-    getDriver().get("https://www.wildberries.ru/");
-  }
-
-  @AfterTest
-  protected void afterMethod() {
-    //driver.close();
-    //driver.quit();
+  @AfterClass
+  public static void afterMethod() {
+    Driver.quit();
   }
 }

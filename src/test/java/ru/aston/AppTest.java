@@ -1,6 +1,7 @@
 package ru.aston;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.aston.Base.BaseTest;
 import ru.aston.Model.*;
@@ -8,77 +9,29 @@ import ru.aston.Model.*;
 import java.util.*;
 
 public class AppTest extends BaseTest {
-  private final List<Product> productsOnStartPage = new ArrayList<>();
-  private final List<Product> productsInCart = new ArrayList<>();
-
-  public void addProductsToTheCart() {
-    WildberriesStartPageModel wildberriesStartPageModel =
-        new WildberriesStartPageModel(getDriver());
-    for (int i = 1; i <= 3; i++) {
-      wildberriesStartPageModel.productAddToCart(i * 2);
-      try {
-        wildberriesStartPageModel.clickSizesButton();
-      } catch (Exception ignored) {
-      }
-      String priceWB =
-          wildberriesStartPageModel
-              .getPrice(wildberriesStartPageModel.getId(i * 2))
-              .replace(" ₽", "")
-              .replace(" ", "");
-      String brand = wildberriesStartPageModel.getBrand(wildberriesStartPageModel.getId(i * 2));
-      String productName =
-          wildberriesStartPageModel
-              .getProductName(wildberriesStartPageModel.getId(i * 2))
-              .replace("/ ", "");
-      productsOnStartPage.add(
-          new Product(0, (Integer.parseInt(priceWB)), brand, productName));
+  MainPage mainPage = new MainPage();
+  private void enterExpression(String expression) {
+    String[] ex = expression.split(" ");
+    for (int i = 0; i < ex.length; i++) {
+      System.out.println(ex[i]);
+      if (i % 2 == 0) mainPage.digitClick(ex[i]);
+      else mainPage.operationClick(ex[i]);
     }
   }
 
-  public void readProductsFromTheCart() throws InterruptedException {
-    WildberriesCartPageModel wildberriesCartPageModel = new WildberriesCartPageModel(getDriver());
-    Thread.sleep(2000);
-    for (int i = 1; i <= 3; i++) {
-      String priceWB =
-          wildberriesCartPageModel
-              .getProductsInCartPricesWB()
-              .get(i - 1)
-              .getText()
-              .replace(" ₽", "")
-              .replace(" ", "");
-      String price =
-          wildberriesCartPageModel
-              .getProductsInCartPrices()
-              .get(i - 1)
-              .getText()
-              .replace(" ₽", "")
-              .replace(" ", "");
-      String brand =
-          wildberriesCartPageModel.getProductsInCartBrands().get(i - 1).getText().replace(", ", "");
-      String productName = wildberriesCartPageModel.getProductsInCartNames().get(i - 1).getText();
-      productsInCart.add(
-          new Product(Integer.parseInt(price), Integer.parseInt(priceWB), brand, productName));
-    }
+  @DataProvider
+  public String[][] Expressions() {
+    return new String[][] {
+            {"1 + 1", "2"},
+            {"5 / 5 + 6", "7"},
+            {"2 * 3", "6"},
+            {"9 / 3", "3"},
+    };
   }
 
-  @Test
-  public void comparisonOfProductsTest() throws InterruptedException {
-    addProductsToTheCart();
-    new WildberriesStartPageModel(getDriver()).clickOpenCartButton();
-    readProductsFromTheCart();
-    Collections.sort(productsOnStartPage);
-    Collections.sort(productsInCart);
-    System.out.println(Arrays.toString(productsOnStartPage.toArray()));
-    System.out.println(Arrays.toString(productsInCart.toArray()));
-    Assert.assertEquals(productsOnStartPage, productsInCart);
-  }
-
-  @Test(dependsOnMethods = "comparisonOfProductsTest")
-  public void priceSummTest() {
-    Assert.assertEquals(productsInCart.stream().mapToInt(Product::getPrice).sum(), Integer.parseInt(
-            new WildberriesCartPageModel(getDriver())
-                    .getPriceSumm()
-                    .replace(" ₽", "")
-                    .replace(" ", "")));
+  @Test(dataProvider = "Expressions")
+  public void checkBaseOperations(String expression, String expectedResult) {
+    enterExpression(expression);
+    Assert.assertEquals(expectedResult, mainPage.getResult());
   }
 }
