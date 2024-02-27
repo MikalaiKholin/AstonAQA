@@ -8,13 +8,14 @@ import ru.aston.Model.*;
 import java.util.*;
 
 public class AppTest extends BaseTest {
+  private static final int COUNT = 3;
   private final List<Product> productsOnStartPage = new ArrayList<>();
   private final List<Product> productsInCart = new ArrayList<>();
 
   public void addProductsToTheCart() {
     WildberriesStartPageModel wildberriesStartPageModel =
         new WildberriesStartPageModel(getDriver());
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= COUNT; i++) {
       wildberriesStartPageModel.productAddToCart(i * 2);
       try {
         wildberriesStartPageModel.clickSizesButton();
@@ -57,7 +58,6 @@ public class AppTest extends BaseTest {
           wildberriesCartPageModel.getProductsInCartBrands().get(i - 1).getText().replace(", ", "");
       String productName =
           wildberriesCartPageModel.getProductsInCartNames().get(i - 1).getText().replace(".", "");
-      ;
       productsInCart.add(
           new Product(Integer.parseInt(price), Integer.parseInt(priceWB), brand, productName));
     }
@@ -82,5 +82,13 @@ public class AppTest extends BaseTest {
                 .getPriceSumm()
                 .replace(" ₽", "")
                 .replace(" ", "")));
+  }
+
+  @Test(dependsOnMethods = "comparisonOfProductsTest")
+  public void quantityAndPriceTest() {
+    int priceSumm =  productsInCart.stream().mapToInt(Product::getPrice).sum();
+    int quantity = productsInCart.size();
+    String quantityAndPrice = String.format("Товары,%dшт.\n%d₽\nИтого\n%d₽", quantity, priceSumm, priceSumm );
+    Assert.assertEquals(new WildberriesCartPageModel(getDriver()).getQuantityAndSumm().replace(" ", ""), quantityAndPrice);
   }
 }

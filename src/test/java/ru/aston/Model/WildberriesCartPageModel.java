@@ -26,8 +26,15 @@ public class WildberriesCartPageModel extends BaseModel {
     @FindBy(xpath = "//div[@class='basket-order__b-top b-top']//span[@class='b-right']")
     private WebElement priceSumm;
 
+    @FindBy(xpath = "//div[@class='basket-order__b-top b-top']")
+    private WebElement quantityAndSumm;
+
     public String getPriceSumm(){
         return priceSumm.getText();
+    }
+
+    public String getQuantityAndSumm(){
+        return quantityAndSumm.getText();
     }
 
     public List<WebElement> getProductsInCartNames(){
